@@ -1,0 +1,43 @@
+micronaut:
+  application:
+    name: micrometerguide
+  http:
+    services:
+      kucoin:
+        urls:
+          - "https://api.kucoin.com"
+  metrics:
+    enabled: true
+    binders:
+      files:
+        enabled: true
+      jdbc:
+        enabled: true
+      jvm:
+        enabled: true
+      logback:
+        enabled: true
+      processor:
+        enabled: true
+      uptime:
+        enabled: true
+      web:
+        enabled: true
+datasources:
+  default:
+    url: jdbc:h2:mem:devDb;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ''
+    driverClassName: org.h2.Driver
+    schema-generate: CREATE_DROP
+    dialect: H2
+flyway:
+  datasources:
+    default:
+      enabled: true
+netty:
+  default:
+    allocator:
+      max-order: 3
+crypto:
+  updateFrequency: 5s
